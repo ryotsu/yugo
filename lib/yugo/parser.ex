@@ -196,7 +196,7 @@ defmodule Yugo.Parser do
             [
               &parse_nstring/1,
               &parse_nstring/1,
-              &parse_address_list/1,
+              &parse_address_list(&1, name: true),
               &parse_address_list/1,
               &parse_address_list/1,
               &parse_address_list/1,
@@ -283,19 +283,23 @@ defmodule Yugo.Parser do
     {{a, b}, rest}
   end
 
-  defp parse_address(rest) do
-    {[_name, _adl, mailbox, host], rest} =
+  defp parse_address(rest, options) do
+    {[name, _adl, mailbox, host], rest} =
       parse_list(rest, [&parse_nstring/1, &parse_nstring/1, &parse_nstring/1, &parse_nstring/1])
 
-    {"#{String.downcase(mailbox)}@#{String.downcase(host)}", rest}
+    if Keyword.get(options, :name) do
+      {"#{name} <#{String.downcase(mailbox)}@#{String.downcase(host)}>", rest}
+    else
+      {"#{String.downcase(mailbox)}@#{String.downcase(host)}", rest}
+    end
   end
 
-  defp parse_address_list(rest) do
+  defp parse_address_list(rest, options \\ []) do
     if Regex.match?(~r/^NIL/is, rest) do
       <<_::binary-size(3), rest::binary>> = rest
       {[], rest}
     else
-      parse_variable_length_list(rest, &parse_address/1)
+      parse_variable_length_list(rest, &parse_address(&1, options))
     end
   end
 

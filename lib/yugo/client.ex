@@ -466,8 +466,8 @@ defmodule Yugo.Client do
   defp package_message(msg) do
     msg
     |> Map.merge(msg.envelope)
-    # From is too easily spoofed, drop it so users use :sender instead
-    |> Map.drop([:from, :fetched, :body_structure, :envelope])
+    # From is too easily spoofed, use :sender instead
+    |> Map.drop([:fetched, :body_structure, :envelope])
     |> Map.put(:body, normalize_structure(msg.body, msg.body_structure))
   end
 

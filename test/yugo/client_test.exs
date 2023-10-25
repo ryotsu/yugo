@@ -50,7 +50,8 @@ defmodule Yugo.ClientTest do
                    reply_to: ["marge@simpsons-family.com"],
                    sender: ["marge@simpsons-family.com"],
                    subject: nil,
-                   to: ["homer@simpsons-family.com"]
+                   to: ["homer@simpsons-family.com"],
+                   from: ["Marge Simpson <marge@simpsons-family.com>"]
                  }
     end
   end
@@ -93,7 +94,8 @@ defmodule Yugo.ClientTest do
                    reply_to: ["bobjones@example.org"],
                    sender: ["bobjones@example.org"],
                    subject: "Foo Bar Baz Buzz Biz Boz",
-                   to: ["foo@bar.com"]
+                   to: ["foo@bar.com"],
+                   from: ["Bob Jones <bobjones@example.org>"]
                  }
     end
   end
@@ -128,7 +130,8 @@ defmodule Yugo.ClientTest do
                    reply_to: ["marge@simpsons-family.com"],
                    sender: ["marge@simpsons-family.com", "bob@bobs-email.com"],
                    subject: "Hello! (subject)",
-                   to: ["homer@simpsons-family.com"]
+                   to: ["homer@simpsons-family.com"],
+                   from: ["Marge Simpson <marge@simpsons-family.com>"]
                  }
     end
   end
@@ -173,7 +176,8 @@ defmodule Yugo.ClientTest do
                  reply_to: ["foo@bar.com"],
                  sender: ["person@domain.com"],
                  subject: "An HTML email",
-                 to: ["bar@foo.com"]
+                 to: ["bar@foo.com"],
+                 from: ["Aych T. Emmel <person@domain.com>"]
                }
     end
   end
@@ -226,7 +230,8 @@ defmodule Yugo.ClientTest do
                    reply_to: ["marge@simpsons-family.com"],
                    sender: ["marge@simpsons-family.com"],
                    subject: nil,
-                   to: ["homer@simpsons-family.com"]
+                   to: ["homer@simpsons-family.com"],
+                   from: ["Marge Simpson <marge@simpsons-family.com>"]
                  }
     end
   end

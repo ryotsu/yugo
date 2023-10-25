@@ -65,7 +65,7 @@ defmodule Yugo.ParserTest do
            bcc: [],
            cc: ["minutes@cnri.reston.va.us", "klensin@mit.edu"],
            date: ~U[1996-07-16 19:23:25Z],
-           from: ["gray@cac.washington.edu"],
+           from: ["Terry Gray <gray@cac.washington.edu>"],
            in_reply_to: nil,
            message_id: "<B27397-0100000@cac.washington.edu>",
            reply_to: ["gray@cac.washington.edu"],

@@ -35,6 +35,7 @@ defmodule Yugo do
           cc: [address],
           date: DateTime.t(),
           flags: [flag],
+          from: [String.t()],
           in_reply_to: nil | String.t(),
           message_id: nil | String.t(),
           reply_to: [address],
